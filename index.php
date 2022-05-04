@@ -30,7 +30,7 @@
 		<?php
       // If Button clicked
 			if(isset($_POST['submit'])) {
-        // Ensures guess field is not empty
+        // Ensures input field is not empty
         if($_POST['age'] != "") {
           // Constants
           define("R_RATED", 18);
@@ -40,19 +40,20 @@
           // Variables
           $age = $_POST['age']; 
           
-          // 
+          // IF the user can see a R-rated movie (18+)
           if ($age >= R_RATED) {
             echo "<br><h4>You can see R-rated movies alone! Since you are " . $age . " years old.</h4>";
-            // 
+            // IF the user can see a PG-13 movie (13+)
           } else if ($age >= PG_THIRTEEN) {
             echo "<br><h4>You can see PG-13 movies alone! Since you are " . $age . "years old.</h4>";
-            // 
+            // IF the user can see a PG or G rated movie (10+)
           } else if ($age >= PG_RATED_ALONE) {
             echo "<br><h4>You can see PG or G rated movies alone! Since you are " . $age . " years old.</h4>";
+            // ELSE statement for if the user is less than 10 years old
           } else {
             echo "<br><h4>You cannot see a movie alone! Since you are less than 10 years old.</h4>";
           }
-          // 
+          // IF the user did not input anything and pressed the submit button
         } else {
           echo "<h4>Please fill the input field.</h4>";
         }
