@@ -11,14 +11,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./fav_index/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="./fav_index/favicon-16x16.png" />
     <link rel="manifest" href="./fav_index/site.webmanifest" />
-    <title>Movie Theather Website in PHP</title>
+    <!-- Website title -->
+    <title>Movie Theater Website in PHP</title>
     <!-- Links to style.css file -->
 		<link rel="stylesheet" href="./css/style.css">
   </head>
   <body>
 		<!-- Heading and paragraph -->
     <?php
-			echo '<center><h1>Movie Theather Website in PHP</h1></center><br>';
+			echo '<center><h1>Movie Theater Website in PHP</h1></center><br>';
 			echo "<p>Enter your below!</p>";
 		?>
 		<!-- Text field and button (Takes Input) -->
@@ -26,7 +27,7 @@
       Age: <input type="number" step="1" min="1" name="age"> <br>
 			<br><br>
 			<input type ="submit" name ="submit"  value="Submit">
-		<!-- Creates random number and outputs back if guessed correctly -->
+		<!-- Takes in user's age and outputs back what movies they can watch -->
 		<?php
       // If Button clicked
 			if(isset($_POST['submit'])) {
@@ -40,12 +41,12 @@
           // Variables
           $age = $_POST['age']; 
           
-          // IF the user can see a R-rated movie (18+)
+          // IF the user can see a R-rated movie alone (18+)
           if ($age >= R_RATED) {
             echo "<br><h4>You can see R-rated movies alone! Since you are " . $age . " years old.</h4>";
-            // IF the user can see a PG-13 movie (13+)
+            // IF the user can see a PG-13 movie alone (13+)
           } else if ($age >= PG_THIRTEEN) {
-            echo "<br><h4>You can see PG-13 movies alone! Since you are " . $age . "years old.</h4>";
+            echo "<br><h4>You can see PG-13 movies alone! Since you are " . $age . " years old.</h4>";
             // IF the user can see a PG or G rated movie (10+)
           } else if ($age >= PG_RATED_ALONE) {
             echo "<br><h4>You can see PG or G rated movies alone! Since you are " . $age . " years old.</h4>";
@@ -53,7 +54,7 @@
           } else {
             echo "<br><h4>You cannot see a movie alone! Since you are less than 10 years old.</h4>";
           }
-          // IF the user did not input anything and pressed the submit button
+          // ELSE the user did not input anything and pressed the submit button
         } else {
           echo "<h4>Please fill the input field.</h4>";
         }
